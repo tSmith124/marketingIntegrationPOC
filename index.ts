@@ -24,7 +24,9 @@ async function run() {
   })
   try {
     const page = await browser.newPage()
-    await page.setUserAgent(generateUserAgent().toString())
+    await page.setUserAgent(
+      new UserAgent([/CrOS/, { deviceCategory: "desktop" }]).toString()
+    )
     await page.goto(linkedin)
     await page.waitForSelector("iframe")
     const iframeElementHandle = await page.$(iframeSelector)
@@ -32,7 +34,7 @@ async function run() {
     console.log(frame)
     await page.screenshot({ path: "login.png", fullPage: true })
     await new Promise((resolve) => setTimeout(resolve, 5000))
-    await frame.type("#username", "TestUserName", { delay: 80 })
+    await frame.type("#username", "Bobs burgers", { delay: 80 })
     await frame.type("#password", "Test2Password", { delay: 75 })
     await page.screenshot({ path: "example.png", fullPage: true })
   } catch (error) {

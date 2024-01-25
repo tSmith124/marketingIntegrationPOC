@@ -6,11 +6,13 @@
   "author": "Taylor Smith <taylor.smith@invisible.email>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node index.ts"
+    "linkedin": "ts-node index.ts",
+    "salesforce": "ts-node salesforce.ts"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
     "ts-node": "^10.9.2",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
